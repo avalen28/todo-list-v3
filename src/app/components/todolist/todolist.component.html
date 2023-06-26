@@ -1,0 +1,29 @@
+<!-- list of tasks -->
+<h1>To do list</h1>
+<div *ngIf="taskList.length">
+    <table>
+        <tr>
+            <th>Task name</th>
+            <th>Status</th>
+            <th>Actions</th>
+            <th></th>
+        </tr>
+        <!-- se prepara el loop. por cada una de las task de taskList hazme esa "card" -->
+        <ng-container *ngFor="let task of taskList">
+            <tr>
+                <!-- aqui está el child y se lo pasamos -->
+                <app-task 
+                    [task]="task" 
+                    (updateTask)="changeTaskStatus($event)"
+                    (deleteTask)="removeTask($event)"
+                ></app-task>
+            </tr>
+        </ng-container>
+    </table>
+</div>
+
+
+<!-- form to add new task -->
+<h2>Add new task</h2>
+<input type="text" [(ngModel)]="newTask" >
+<button (click)="addToList()">Add to list</button>

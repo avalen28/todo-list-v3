@@ -1,0 +1,7 @@
+<!-- esto es el child -->
+
+<td>{{task.name}}</td>
+<td>{{task.isFinished ? 'Finished' : 'Pending'}}</td>
+<td><button (click)="changeTaskStatus(task.id)">Change status</button></td>
+<td><button (click)="removeTask(task.id)">X</button></td>
+           
